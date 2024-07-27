@@ -1,0 +1,23 @@
+ALGORITHM sort_insertion
+VAR
+    arr: ARRAY OF INTEGER
+    i, j, key: INTEGER
+BEGIN
+    // Read the array
+    Read(arr)
+    // Perform insertion sort
+    FOR i FROM 1 TO arr.length-1 STEP 1 DO
+        key := arr[i]
+        j := i - 1
+        // Move elements of arr[0..i-1] that are greater than key
+        // to one position ahead of their current position
+        WHILE (j >= 0 AND arr[j] > key) DO
+            arr[j + 1] := arr[j]
+            j := j - 1
+        END_WHILE
+        arr[j + 1] := key
+    END_FOR
+
+        Write(arr)
+
+END
